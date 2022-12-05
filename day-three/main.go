@@ -17,7 +17,7 @@ func main() {
 	}
 }
 
-var priorityValues = map[string]int{"a": 1, "b": 2, "c": 3, "d": 4, "e": 5, "f": 6, "g": 7, "h": 8, "i": 9, "j": 10, "k": 11, "l": 12, "m": 13, "n": 14, "o": 15, "p": 16, "q": 17, "r": 18, "s": 19, "t": 20, "u": 21, "v": 22, "w": 23, "x": 24, "y": 25, "z": 26, "A": 27, "B": 28, "C": 29, "D": 30, "E": 31, "F": 32, "G": 33, "H": 34, "I": 35, "J": 36, "K": 37, "L": 38, "M": 39, "N": 40, "O": 41, "P": 42, "Q": 43, "R": 44, "S": 45, "T": 46, "U": 47, "V": 48, "W": 49, "X": 50, "Y": 51, "Z": 52}
+var priorityValues = map[rune]int{'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5, 'f': 6, 'g': 7, 'h': 8, 'i': 9, 'j': 10, 'k': 11, 'l': 12, 'm': 13, 'n': 14, 'o': 15, 'p': 16, 'q': 17, 'r': 18, 's': 19, 't': 20, 'u': 21, 'v': 22, 'w': 23, 'x': 24, 'y': 25, 'z': 26, 'A': 27, 'B': 28, 'C': 29, 'D': 30, 'E': 31, 'F': 32, 'G': 33, 'H': 34, 'I': 35, 'J': 36, 'K': 37, 'L': 38, 'M': 39, 'N': 40, 'O': 41, 'P': 42, 'Q': 43, 'R': 44, 'S': 45, 'T': 46, 'U': 47, 'V': 48, 'W': 49, 'X': 50, 'Y': 51, 'Z': 52}
 
 func p1(input string) int {
 	priorities := 0
@@ -31,8 +31,8 @@ func findLinePriority(line string) int {
 	lineLength := len(line)
 	firstHalf := line[:lineLength/2]
 	secondHalf := line[lineLength/2:]
-	for _, firstChar := range strings.Split(firstHalf, "") {
-		for _, secondChar := range strings.Split(secondHalf, "") {
+	for _, firstChar := range firstHalf {
+		for _, secondChar := range secondHalf {
 			if firstChar == secondChar {
 				return priorityValues[firstChar]
 			}
@@ -51,10 +51,10 @@ func p2(input string) int {
 }
 
 func findGroupPriority(first, second, third string) int {
-	for _, firstChar := range strings.Split(first, "") {
-		for _, secondChar := range strings.Split(second, "") {
+	for _, firstChar := range first {
+		for _, secondChar := range second {
 			if firstChar == secondChar {
-				for _, thirdChar := range strings.Split(third, "") {
+				for _, thirdChar := range third {
 					if secondChar == thirdChar {
 						return priorityValues[firstChar]
 					}
