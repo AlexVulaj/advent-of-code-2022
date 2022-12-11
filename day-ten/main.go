@@ -16,7 +16,7 @@ func main() {
 		util.PrintResult(p1(input))
 	} else {
 		fmt.Println("Answer:")
-		print2dArray(p2(input))
+		util.Print2dArray(p2(input))
 		fmt.Println()
 	}
 }
@@ -96,15 +96,6 @@ func p2(input string) [][]string {
 
 	fmt.Println(crt)
 	return crt
-}
-
-func print2dArray[K any](array [][]K) {
-	for i, row := range array {
-		for j, _ := range row {
-			fmt.Print(array[i][j])
-		}
-		fmt.Println()
-	}
 }
 
 func incrementCycle(currentCycle int) (int, int, int) {
